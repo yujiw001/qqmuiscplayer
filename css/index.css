@@ -105,6 +105,47 @@
     height: 420px;
     background: yellow;
 }
+.content_list li{
+    list-style: none;
+    width: 100%;
+    height: 50px;
+    background: orangered;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    box-sizing: border-box;
+}
+.content_list li div{
+    float: left;
+    color: #fff;
+    line-height: 50px;
+    opacity: 0.5;
+}
+.content_list .list_check{
+    width: 50px;
+    height: 100%;
+    background: black;
+    text-align: center;
+}
+.content_list .list_check i{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #fff
+}
+.content_list .list_number{
+    width: 20px;
+    height: 100%;
+    background: chartreuse;
+}
+.content_list .list_name{
+    width: 50%;
+    height: 100%;
+    background: #ccc;
+}
+.content_list .list_singer{
+    width: 20%;
+    height: 100%;
+    background: pink;
+}
 .content_in .content_right{
     float:right;
     width: 600px;
