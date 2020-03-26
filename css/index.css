@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
 }
+html.body{
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
 .clear{
     clear:both;
 }
@@ -104,6 +109,7 @@
     width:100%;
     height: 420px;
     background: yellow;
+    overflow: auto;
 }
 .content_list li{
     list-style: none;
@@ -112,6 +118,7 @@
     background: orangered;
     border-bottom: 1px solid rgba(255,255,255,0.5);
     box-sizing: border-box;
+    user-select:none;
 }
 .content_list li div{
     float: left;
@@ -129,12 +136,38 @@
     display: inline-block;
     width: 14px;
     height: 14px;
-    border: 1px solid #fff
+    /* border: 1px solid #fff */
+}
+.content_list .list_checked i{
+    background: url("../images/checkbox.png") ;
 }
 .content_list .list_number{
     width: 20px;
     height: 100%;
     background: chartreuse;
+}
+.list_name .list_menu{
+    margin-top: 5px;
+    float: right;
+    margin-right: 20px;
+    display: none;
+}
+.list_menu a{
+    display: inline-block;
+    width:36px;
+    height: 36px;
+}
+.list_menu a :nth-child(1){
+    background-position: -120px -0px;
+}
+.list_menu a :nth-child(){
+    background-position: -120px -80px;
+}
+.list_menu a :nth-child(){
+    background-position: -120px -120px;
+}
+.list_menu a :nth-child(){
+    background-position: -120px -40px;
 }
 .content_list .list_name{
     width: 50%;
@@ -146,11 +179,53 @@
     height: 100%;
     background: pink;
 }
+.content_list .list_time a{
+    display: inline-block;
+    width:36px;
+    height: 36px;
+    float: left;
+    margin-top: 5px;
+}
 .content_in .content_right{
     float:right;
     width: 600px;
     height: 100%;
     background: violet;
+}
+.content_in .song_info{
+    text-align: center;
+    color: rgbn(255,255,255,0.5);
+    line-height: 30px;  
+}
+.song_info .song_info_pic{
+    display: inline-block;
+    text-align: left;
+}
+.song_info_pic img{
+    width: 180px;
+    height:180px;
+}
+.song_info div a{
+    text-decoration: none;
+    color:#fff;
+    opacity: 0.5;
+}
+.song_info div a:hover{
+    opacity: 1;
+}
+.content_right .song_lyric{
+    background: yellow;
+    text-align: center;
+    margin-top: 30px;
+}
+.content_right .song_lyric li{
+    list-style: none;
+    line-height: 30px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.5);
+}
+.content_right .song_lyric .cur{
+    color: #31c27c;
 }
 .footer{
     width: 100%;
@@ -166,3 +241,5 @@
     background: black;
     margin: 0 auto;
 }
+
+.mCS_1 .mCSB_scrollTools .mCSB_dragger_bar{ width: 8px; }
