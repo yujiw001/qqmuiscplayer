@@ -13,7 +13,7 @@ html.body{
 .header{
     width:100%;
     height:46px;
-    background:red;
+    /* background:red; */
 }
 .header.logo{
     float: left;
@@ -49,24 +49,24 @@ html.body{
 .content{
     width:100%;
     height:460px;
-    background: blue;
+    /* background: blue; */
 }
 .content .content_in{
     width:1800px;
     height:100%;
-    background:yellowgreen;
+    /* background:yellowgreen; */
     margin: 0 auto;
 }
 .content_in .content_left{
     float: left;
     width: 1200px;
     height: 100%;
-    background: thistle;
+    /* background: thistle; */
 }
 .content_left .content_toolbar{
     width:100%;
     height: 40px;
-    background: purple;
+    /* background: purple; */
 }
 .content_toolbar span{
     display: inline-block;
@@ -108,14 +108,14 @@ html.body{
 .content_left .content_list{
     width:100%;
     height: 420px;
-    background: yellow;
+    /* background: yellow; */
     overflow: auto;
 }
 .content_list li{
     list-style: none;
     width: 100%;
     height: 50px;
-    background: orangered;
+    /* background: orangered; */
     border-bottom: 1px solid rgba(255,255,255,0.5);
     box-sizing: border-box;
     user-select:none;
@@ -129,7 +129,7 @@ html.body{
 .content_list .list_check{
     width: 50px;
     height: 100%;
-    background: black;
+    /* background: black; */
     text-align: center;
 }
 .content_list .list_check i{
@@ -144,7 +144,7 @@ html.body{
 .content_list .list_number{
     width: 20px;
     height: 100%;
-    background: chartreuse;
+    /* background: chartreuse; */
 }
 .list_name .list_menu{
     margin-top: 5px;
@@ -172,12 +172,12 @@ html.body{
 .content_list .list_name{
     width: 50%;
     height: 100%;
-    background: #ccc;
+    /* background: #ccc; */
 }
 .content_list .list_singer{
     width: 20%;
     height: 100%;
-    background: pink;
+    /* background: pink; */
 }
 .content_list .list_time a{
     display: inline-block;
@@ -190,7 +190,7 @@ html.body{
     float:right;
     width: 600px;
     height: 100%;
-    background: violet;
+    /* background: violet; */
 }
 .content_in .song_info{
     text-align: center;
@@ -214,7 +214,7 @@ html.body{
     opacity: 1;
 }
 .content_right .song_lyric{
-    background: yellow;
+    /* background: yellow; */
     text-align: center;
     margin-top: 30px;
 }
@@ -225,12 +225,12 @@ html.body{
     color: rgba(255,255,255,0.5);
 }
 .content_right .song_lyric .cur{
-    color: #31c27c;
+    /* color: #31c27c; */
 }
 .footer{
     width: 100%;
-    height: 60px;
-    background: green;
+    height: 80px;
+    /* background: green; */
     position: absolute;
     left:0;
     bottom:0;
@@ -238,8 +238,155 @@ html.body{
 .footer .footer_in{
     width:1200px;
     height:100%;
-    background: black;
+    /* background: tomato; */
     margin: 0 auto;
 }
-
+.footer_in a {
+    display: inline-block;
+    text-decoration: none;
+    color: fff;
+    margin-right: 30px;
+}
+.footer_in .music_pre{
+    width:19px;
+    height:20px;
+    background-position: 0 -30px;
+}
+.footer_in .music_play{
+    width:21px;
+    height:29px;
+    background-position: 0 0;
+}
+.footer_in .music_next{
+    width:21px;
+    height:29px;
+    background-position: 0 -52px;
+}
+.footer_in .music_progress_info{
+    display: inline-block;
+    width:600px;
+    height:40px;
+    /* background-color: saddlebrown; */
+    position: relative;
+    top:10px;
+}
+.music_progress_info .music_progress_top{
+    width:100%;
+    height:30px;
+    line-height:30px;
+    /* background: pink; */
+}
+.music_progress_name{
+    float:left;
+    opacity: 0.5;
+}
+.music_progress_name:hover{
+    opacity:1;
+}
+.music_progress_time{
+    float:right;
+    opacity:0.5;
+}
+.music_progress_bar{
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.5);
+    margin-top: 5px;
+}
+.music_progress_line{
+    width:100px;
+    height: 4px;
+    background: white;
+}
+.music_progress_dot{
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    position: relative;
+    top: -5px;
+    left: 100px;
+    background: white;
+} 
+.footer_in .music_mode{
+    width:26px;
+    height:25px;
+    background-position: 0 -205px;
+}
+.footer_in .music_fav{
+    width:26px;
+    height:25px;
+    background-position: 0 -96px;
+}
+.footer_in .music_down{
+    width:26px;
+    height:25px;
+    background-position: 0 -120px;
+}
+.footer_in .music_comment{
+    width:24px;
+    height:24px;
+    background-position: 0 -400px;
+}
+.footer_in .music_only{
+    width:26px;
+    height:25px;
+    background-position: 0 -281px;
+}
+.footer_in .music_voice_info{
+    display: inline-block;
+    width:100px;
+    height:40px;
+    /* background-color: blue; */
+    position: relative;
+    left:0;
+    top: 20px;
+}
+.music_voice_icon{
+    width:26px;
+    height:21px;
+    background-position: 0 -144px;
+    position: absolute;
+}
+.music_voice_bar{
+    width: 70px;
+    height: 4px;
+    background: rgba(255,255,255,0.5);
+    position: absolute;
+    left:22px;
+    top:8px;
+}
+.music_voice_line{
+    width: 50px;
+    height: 100%;
+    background: #fff;
+}
+.music_voice_dot{
+    width:13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+    top:-5px;
+    left:50px;
+}
+.mask_bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: -10;
+    background: url("../images/closer.jpg");
+    background-size: cover ;
+    filter: blur(10px);
+}
+.mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    z-index: -5;
+    background: rgba(0,0,0,0.35);
+}
 .mCS_1 .mCSB_scrollTools .mCSB_dragger_bar{ width: 8px; }
