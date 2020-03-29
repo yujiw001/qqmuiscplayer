@@ -20,4 +20,47 @@ $(function(){
     $(".list_check").click(function(){
         $(this).toggleClass("list_checked");
     });
+    //3.加载歌曲列表
+    getPlayerList();
+    function getPlayerList(){
+        $.ajax({
+            url:"../source/musiclist.json",
+            dataType:"json",
+            success: function(data){
+                //3.1遍历获取到的数据，创建每一条音乐
+                $.each(data, function(index,ele){
+                    var $item = createMusicItem(index,ele);
+                    var $musicList = $(".content_list ul");
+                    $musicList.append($item);
+                });
+            },
+            error: function(e){
+                console.log(e);
+            }
+            
+        });
+    }
+    //定义一个方法创建一条音乐
+    function createMusicItem(index,music){
+        var $item = $("" +
+        "<li class=\"list_music\">\n" +
+            "<div class=\"list_check\"><i></i></div>\n" +
+            "<div class=\"list_number\">"+(index + 1)+"</div>\n" +
+            "<div class=\"list_name\">"+music.name+"" +
+            "     <div class=\"list_menu\">\n" +
+            "          <a href=\"javascript:;\" title=\"播放\" class='list_menu_play'></a>\n" +
+            "          <a href=\"javascript:;\" title=\"添加\"></a>\n" +
+            "          <a href=\"javascript:;\" title=\"下载\"></a>\n" +
+            "          <a href=\"javascript:;\" title=\"分享\"></a>\n" +
+            "     </div>\n" +
+            "</div>\n" +
+            "<div class=\"list_singer\">"+music.singer+"</div>\n" +
+            "<div class=\"list_time\">\n" +
+            "     <span>"+music.time+"</span>\n" +
+            "     <a href=\"javascript:;\" title=\"删除\" class='list_menu_del'></a>\n" +
+            "</div>\n" +
+        "</li>");
+        return $item;
+        
+    }
 });
