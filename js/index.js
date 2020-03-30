@@ -19,7 +19,6 @@ $(function(){
     //2.监听复选框的点击事件
     $(".content_list").delegate(".list_check","click",function(){
         $(this).toggleClass("list_checked");
-        alert("s");
     });
     //3.添加子菜单播放按钮的监听
     var $musicPlay = $(".music_play");
@@ -33,8 +32,12 @@ $(function(){
         if($(this).attr("class").indexOf("list_menu_play_two")!=-1){
             //当前的确是播放状态
             $musicPlay.addClass("music_play2")
+            //让文字高亮
+            $(this).parents(".list_music").find("div").css("color","#fff")
         }else{
             $musicPlay.removeClass("music_play2")
+            //让文字不高亮
+            $(this).parents(".list_music").find("div").css("color","rgba(255,255,255,0.5)")
         }
         
     });
