@@ -34,11 +34,15 @@ $(function(){
             $musicPlay.addClass("music_play2")
             //让文字高亮
             $(this).parents(".list_music").find("div").css("color","#fff")
+            $(this).parents(".list_music").siblings().find("div").css("color","rgba(255,255,255,0.5)")
         }else{
             $musicPlay.removeClass("music_play2")
             //让文字不高亮
             $(this).parents(".list_music").find("div").css("color","rgba(255,255,255,0.5)")
         }
+        //3.4切换序号的状态
+        $(this).parents(".list_music").find(".list_number").toggleClass("list_number2");
+        $(this).parents(".list_music").siblings().find(".list_number").removeClass("list_number2");
         
     });
     //3.加载歌曲列表
