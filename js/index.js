@@ -1,6 +1,9 @@
 $(function(){
     //0.自定义滚动条
     $(".content_list").mCustomScrollbar();
+    var $audio = $("audio");
+    var player = new Player($audio);
+    function initEvents(){
     //1.监听歌曲的移入移出时间 注意！所有动态添加的的东西要添加事件一定要通过事件委托
     $(".content_list").delegate(".list_music","mouseenter",function(){
         $(this).find(".list_menu").stop().fadeIn(100);
@@ -23,7 +26,7 @@ $(function(){
     //3.添加子菜单播放按钮的监听
     var $musicPlay = $(".music_play");
     $(".content_list").delegate(".list_menu_play","click",function(){
-        // alert("sa");
+        var $item = $(this).parents(".list_music");
         //3.1 切换播放图标
         $(this).toggleClass("list_menu_play_two");
         //3.2复原其他播放图标
@@ -43,8 +46,13 @@ $(function(){
         //3.4切换序号的状态
         $(this).parents(".list_music").find(".list_number").toggleClass("list_number2");
         $(this).parents(".list_music").siblings().find(".list_number").removeClass("list_number2");
+        //3.5播放音乐
+        player.playMusic($item.get(0).index, $item.get(0).music);
         
     });
+    }
+    //初始化事件监听
+    initEvents();
     //3.加载歌曲列表
     getPlayerList();
     function getPlayerList(){
@@ -52,6 +60,7 @@ $(function(){
             url:"../source/musiclist.json",
             dataType:"json",
             success: function(data){
+                player.musicList=data;
                 //3.1遍历获取到的数据，创建每一条音乐
                 var $musicList = $(".content_list ul");
                 $.each(data, function(index,ele){
@@ -86,6 +95,8 @@ $(function(){
             "     <a href=\"javascript:;\" title=\"删除\" class='list_menu_del'></a>\n" +
             "</div>\n" +
         "</li>");
+        $item.get(0).index=index;
+        $item.get(0).music=music;
         return $item;
         
     }
