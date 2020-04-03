@@ -48,8 +48,28 @@ $(function(){
         $(this).parents(".list_music").siblings().find(".list_number").removeClass("list_number2");
         //3.5播放音乐
         player.playMusic($item.get(0).index, $item.get(0).music);
+        });
+        //4.监听底部控制区域播放按钮的点击
+        $musicPlay.click(function(){
+            //判断有没有播放过音乐
+            if(player.currentIndex == -1){
+                //没有播放过音乐
+                $(".list_music").eq(0).find(".list_menu_play").trigger("click");
+            }else{
+                //已经播放过音乐
+                $(".list_music").eq(player.currentIndex).find(".list_menu_play").trigger("click");
+            }
+        });
+        //5.监听底部控制区域上一首按钮的点击
+        $(".music_pre").click(function(){
+            $(".list_music").eq(player.preIndex()).find(".list_menu_play").trigger("click");
+        });
+        //6.监听底部控制区域下一首按钮的点击
+        $(".music_next").click(function(){
+            $(".list_music").eq(player.nextIndex()).find(".list_menu_play").trigger("click");
+        });
         
-    });
+    
     }
     //初始化事件监听
     initEvents();
