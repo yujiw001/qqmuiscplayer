@@ -41,6 +41,14 @@
                 index = 0;
             }
             return index;
+        },
+        changeMusic:function(index){
+            //删除对应的数据
+            this.musicList.splice(index,1);
+            //判断当前删除的是否是正在播放音乐的前面的音乐
+            if(index<this.currentIndex){
+                this.currentIndex = this.currentIndex - 1;
+            }
         }
     }
     Player.prototype.init.prototype = Player.prototype;
