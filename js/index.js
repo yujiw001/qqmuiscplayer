@@ -3,6 +3,11 @@ $(function(){
     $(".content_list").mCustomScrollbar();
     var $audio = $("audio");
     var player = new Player($audio);
+    var $progressBar = $(".music_progress_bar");
+    var $progressLine = $(".music_progress_line");
+    var $progressDot = $(".music_progress_dot");
+    var progress = Progress($progressBar,$progressLine,$progressDot);
+    progress.progressClick();
     function initEvents(){
     //1.监听歌曲的移入移出时间 注意！所有动态添加的的东西要添加事件一定要通过事件委托
     $(".content_list").delegate(".list_music","mouseenter",function(){
@@ -48,7 +53,10 @@ $(function(){
         $(this).parents(".list_music").siblings().find(".list_number").removeClass("list_number2");
         //3.5播放音乐
         player.playMusic($item.get(0).index, $item.get(0).music);
+        //3.6切换歌曲信息
+        initMusicInfo($item.get(0).music);
         });
+        
         //4.监听底部控制区域播放按钮的点击
         $musicPlay.click(function(){
             //判断有没有播放过音乐
@@ -104,12 +112,32 @@ $(function(){
                     // var $musicList = $(".content_list ul");
                     $musicList.append($item);
                 });
+                initMusicInfo(data[0]);
             },
             error: function(e){
                 console.log(e);
             }
             
         });
+    }
+    //2.初始化歌曲信息
+    function initMusicInfo(music){
+        //获取对应的元素
+        var $musicImage = $(".song_info_pic img");
+        var $musicName = $(".song_info_name a");
+        var $musicSinger = $(".song_info_singer a");
+        var $musicAblum = $(".song_info_album a");
+        var $musicProgressName = $(".music_progress_name");
+        var $musicProgressTime = $(".music_progress_time");
+        var $musicBg = $(".mask_bg");
+        //给获取到的元素赋值
+        $musicImage.attr("src",music.cover);
+        $musicName.text(music.name);
+        $musicSinger.text(music.singer);
+        $musicAblum.text(music.album);
+        $musicProgressName.text(music.name+" / "+music.singer);
+        $musicProgressTime.text("00:00 / "+music.time);
+        $musicBg.css("background", "url('"+music.cover+"')");
     }
     //定义一个方法创建一条音乐
     function createMusicItem(index,music){
