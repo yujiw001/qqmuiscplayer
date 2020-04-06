@@ -8,6 +8,7 @@ $(function(){
     var $progressDot = $(".music_progress_dot");
     var progress = Progress($progressBar,$progressLine,$progressDot);
     progress.progressClick();
+    progress.progressMove();
     function initEvents(){
     //1.监听歌曲的移入移出时间 注意！所有动态添加的的东西要添加事件一定要通过事件委托
     $(".content_list").delegate(".list_music","mouseenter",function(){

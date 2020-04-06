@@ -21,6 +21,27 @@
                  $this.$progressLine.css("width",eventLeft - normalLeft);
                  $this.$progressDot.css("left",eventLeft - normalLeft);
             });
+        },
+        progressMove: function(){
+            var $this=this;
+            //1.监听鼠标按下事件
+            this.$progressBar.mousedown(function(){
+                //获取点击的位置距离窗口的位置
+                var normalLeft = $(this).offset().left;
+                //2.监听鼠标的移动事件
+                $(document).mousemove(function(){
+                    //获取点击的位置距离窗口的位置
+                    var eventLeft = event.pageX;
+                    //设置背景的宽度
+                    $this.$progressLine.css("width",eventLeft - normalLeft);
+                    
+                    $this.$progressDot.css("left",eventLeft - normalLeft);
+                });
+                //3.监听鼠标的抬起事件
+                $(document).mouseup(function(){
+                    $(document).off("mousemove");
+                });
+            })
         }
         
     },
