@@ -49,6 +49,12 @@
             if(index<this.currentIndex){
                 this.currentIndex = this.currentIndex - 1;
             }
+        },
+        getMusicDuration: function(){
+            return this.audio.duration;
+        },
+        getMusicCurrentTime: function(){
+            return this.audio.currentTime;
         }
     }
     Player.prototype.init.prototype = Player.prototype;
