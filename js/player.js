@@ -50,11 +50,34 @@
                 this.currentIndex = this.currentIndex - 1;
             }
         },
-        getMusicDuration: function(){
-            return this.audio.duration;
+        musicTimeUpdate: function (callBack) {
+            var $this = this;
+            this.$audio.on("timeupdate", function () {
+                var duration = $this.audio.duration;
+                var currentTime = $this.audio.currentTime;
+                var timeStr = $this.formatDate(currentTime, duration);
+                callBack(currentTime, duration, timeStr);
+            });
         },
-        getMusicCurrentTime: function(){
-            return this.audio.currentTime;
+        formatDate: function(currentTime,duration){
+            var endMin = parseInt(duration / 60); // 2
+            var endSec = parseInt(duration % 60);
+            if(endMin < 10){
+                endMin = "0" + endMin;
+            }
+            if(endSec < 10){
+                endSec = "0" + endSec;
+            }
+
+            var startMin = parseInt(currentTime / 60); // 2
+            var startSec = parseInt(currentTime % 60);
+            if(startMin < 10){
+                startMin = "0" + startMin;
+            }
+            if(startSec < 10){
+                startSec = "0" + startSec;
+            }
+            return startMin+":"+startSec+" / "+endMin+":"+endSec;
         }
     }
     Player.prototype.init.prototype = Player.prototype;

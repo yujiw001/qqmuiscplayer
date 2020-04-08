@@ -94,14 +94,14 @@ $(function(){
             });
         });
         //8.监听播放的进度
-        player.$audio.on("timeupdate",function(){
-            var duration = player.getMusicDuration();
-            var currentTime = player.getMusicCurrentTime();
-            var timeStr = formatDate(currentTime,duration);
+        player.musicTimeUpdate(function (currentTime, duration, timeStr) {
+            // 同步时间
             $(".music_progress_time").text(timeStr);
+            // 同步进度条
+            // 计算播放比例
+            var value = currentTime / duration * 100;
+            progress.setProgress(value);
         });
-        
-    
     }
     //初始化事件监听
     initEvents();
@@ -172,29 +172,5 @@ $(function(){
         return $item;
         
     }
-    //定义一个格式化时间的方法
-    function formatDate(currentTime,duration){
-        var endMin = parseInt(duration/60);
-        var endSec = parseInt(duration%60);
-        var endtime=endMin + ":" + endSec
-        // if(isNaN(endtime)){
-        //     endMin="00";
-        //     endSec="00";
-        // }
-        if(endMin < 10){
-            endMin = "0" +endMin;
-        }
-        if(endSec < 10){
-            endSec = "0" + endSec;
-        }
-        var startMin = parseInt(currentTime/60);
-        var startSec = parseInt(currentTime%60);
-        if(startMin < 10){
-            startMin = "0" +startMin;
-        }
-        if(startSec < 10){
-            startSec = "0" + startSec;
-        }
-        return startMin+ ":" +startSec + " /" + endMin + ":" + endSec;
-    }
+   
 });

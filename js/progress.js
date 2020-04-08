@@ -42,6 +42,16 @@
                     $(document).off("mousemove");
                 });
             })
+        },
+        setProgress: function (value) {
+            if(this.isMove) return;
+            if(value < 0 || value > 100) return;
+            this.$progressLine.css({
+                width: value+"%"
+            });
+            this.$progressDot.css({
+                left: value+"%"
+            });
         }
         
     },
